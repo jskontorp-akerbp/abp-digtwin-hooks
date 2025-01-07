@@ -17,7 +17,7 @@ def check_prerequisites():
     logging.info("Checking prerequisites")
     try:
         subprocess.run(["cdf", "--version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    except FileNotFoundError:
+    except subprocess.CalledProcessError:
         error_exit("Missing prerequisite: cognite-toolkit not found. Install it first by running 'pip install cognite-toolkit' in your preferred python environment.")
 
     if not Path("./config.dev.yaml").exists():

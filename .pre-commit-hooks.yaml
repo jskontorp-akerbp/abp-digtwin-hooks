@@ -1,6 +1,6 @@
 -   id: cdf-deployment-dry-run
-    name: CDF Deployment Dry Run
-    entry: uv python hooks/cdf_deployment_dry_run.py  # Using UV to run the script
+    name: CDF Deployment Dry Run # Executes a dry run of the CDF deployment process to validate changes before committing
+    entry: python -m hooks.cdf_deployment_dry_run
     language: python
-    pass_filenames: false
-    always_run: true
+    pass_filenames: false # No filenames will be passed to the hook
+    always_run: true # This hook will run even if there are no matching files.

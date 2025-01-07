@@ -1,9 +1,9 @@
 [project]
 name = "abp-digtwin-hooks"
 version = "0.1.0"
-description = "Add your description here"
+description = "A collection of pre-commit hooks designed for automating tasks related to CDF deployment and integration within the digital twin ecosystem."
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
-    "cognite-toolkit>=0.2.22",
+    "cognite-toolkit==0.3.19",
 ]
