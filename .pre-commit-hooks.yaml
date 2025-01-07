@@ -1,0 +1,6 @@
+-   id: cdf-deployment-dry-run
+    name: CDF Deployment Dry Run
+    entry: uv python hooks/cdf_deployment_dry_run.py  # Using UV to run the script
+    language: python
+    pass_filenames: false
+    always_run: true
