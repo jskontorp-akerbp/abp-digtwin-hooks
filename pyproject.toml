@@ -1,6 +1,6 @@
 [project]
 name = "abp-digtwin-hooks"
-version = "0.1.0"
+version = "0.1.1"
 description = "A collection of pre-commit hooks designed for automating tasks related to CDF deployment and integration within the digital twin ecosystem."
 readme = "README.md"
 requires-python = ">=3.11"

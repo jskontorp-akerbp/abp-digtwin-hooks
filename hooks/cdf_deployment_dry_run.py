@@ -67,6 +67,24 @@ def run_cdf_deploy_dry_run():
     logging.info("Running 'cdf deploy --dry-run'")
     subprocess.run(["cdf", "deploy", "--dry-run"], check=True)
 
+def cleanup():
+    """Cleanup: Remove build/ and modules/CogniteDataFusion/ directories."""
+    logging.info("Cleaning up dry run generated directories")
+
+    paths_to_remove = [
+        Path("./build"),
+        Path("modules/CogniteDataFusion")
+    ]
+
+    for path in paths_to_remove:
+        if path.exists():
+            logging.info(f"Removing directory: {path}")
+            shutil.rmtree(path)
+        else:
+            logging.debug(f"Directory {path} does not exist, skipping...")
+
+    logging.info("Cleanup completed")
+
 def main():
     try:
         # Step 0: Check prerequisites
@@ -83,6 +101,9 @@ def main():
 
         # Step 4: Run 'cdf deploy --dry-run'
         run_cdf_deploy_dry_run()
+
+        # Step 5: Cleanup
+        cleanup()
 
         logging.info("All steps completed successfully!")
     except Exception as e:
