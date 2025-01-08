@@ -30,6 +30,7 @@ repos:
 ### 2. Install the pre-commit hooks
 Run the following command in your project directory:
 ```bash
+pre-commit autoupdate # To get latest version
 pre-commit install
 ```
 
