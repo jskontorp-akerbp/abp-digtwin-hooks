@@ -68,7 +68,7 @@ Refer to [CDF Toolkit Documentation](https://docs.cognite.com/cdf/deploy/cdf_too
 
 ### 5. **Configuration File (`./config.dev.yaml`)**
 - Add or use an existing `config.dev.yaml` file in the root directory. It must meet the following criteria:
-  1. **Module Name**: Use `CogniteDataFusion` (not `custom/`) as the module name.
+  1. **Selected module**: Use `CogniteDataFusion` (not `custom/`) as the selected module under the environment.
   2. **Project Name**: Set the correct project name, such as `abp-dev`.
   3. **Variable Setup**:
      - From the `config.yaml` file in [dig-cdf-templates](https://akerbp.visualstudio.com/DataOps/_git/dig-cdf-templates?path=/pipeline-templates/cdf-templ/config/config.yaml&version=GBdev&line=20&lineEnd=60&lineStartColumn=7&lineEndColumn=35&lineStyle=plain&_a=contents), copy variables under:
