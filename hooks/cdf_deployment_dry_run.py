@@ -41,16 +41,16 @@ def synchronize_directories(src_dir: str, dest_dir: str):
 def prefix_directories_with_fn(base_dir: str):
     """Step 2: Prefix all directories in a given path with 'fn_'."""
     functions_dir = Path(base_dir)
-    if not functions_dir.is_dir():
-        error_exit(f"Directory '{base_dir}' not found. Exiting deployment dry run.")
-    
-    logging.info(f"Prefixing directories in '{base_dir}' with 'fn_'")
-    for dir_path in functions_dir.iterdir():
-        if dir_path.is_dir() and not dir_path.name.startswith("fn_"):
-            new_name = dir_path.parent / f"fn_{dir_path.name}"
-            dir_path.rename(new_name)
-            logging.debug(f"Renaming '{dir_path}' to '{new_name}'")
-    logging.info(f"Prefixed directories in '{base_dir}' with 'fn_'")
+    if functions_dir.is_dir():    
+        logging.info(f"Prefixing directories in '{base_dir}' with 'fn_'")
+        for dir_path in functions_dir.iterdir():
+            if dir_path.is_dir() and not dir_path.name.startswith("fn_"):
+                new_name = dir_path.parent / f"fn_{dir_path.name}"
+                dir_path.rename(new_name)
+                logging.debug(f"Renaming '{dir_path}' to '{new_name}'")
+        logging.info(f"Prefixed directories in '{base_dir}' with 'fn_'")
+    else:
+        logging.warning(f"No'{base_dir}' directory found. Assuming module has no functions and skipping step.")
 
 def run_cdf_build():
     """Step 3: Run 'cdf build' after cleaning up build directory."""
@@ -110,4 +110,5 @@ def main():
         error_exit(f"An unexpected error occurred: {e}")
 
 if __name__ == "__main__":
+    logging.info("Starting deployment dry run")
     main()
